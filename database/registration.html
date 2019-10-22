@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+    <title>B2B </title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/headers/header1.css">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="assets/css/style_responsive.css">       
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    
+        <!-- CSS Theme -->    
+    <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color">
+    <link rel="stylesheet" href="assets/css/validation/validationEngine.jquery.css"> 
+</head>
+
+<body>
+<div class="header">               
+    <div class="container"> 
+        <!-- Logo -->       
+        <div class="Span4">                                             
+            <a href="#"><img id="" src="images/logo.jpeg" alt="Logo"></a>
+        </div><!-- /logo -->        
+                                    
+        <!-- Menu navbar -->
+        <div class="navbar">                                
+            <div class="navbar-inner">                                  
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a><!-- /nav-collapse -->                                  
+                <div class="nav-collapse collapse">                                     
+                    <ul class="nav top-2">
+                    	<li class="active"><a href="#">Register Free </a></li>
+                        <li><a href="#">Home </a></li>
+                        <li><a href="#">Trade Leads </a></li>
+                        <li><a href="#">Trade Fairs</a></li>
+						<li><a href="#">About Us </a></li>
+                    </ul>
+
+                </div><!-- /nav-collapse -->                                
+            </div><!-- /navbar-inner -->
+        </div>                      
+    </div><!-- /container -->               
+</div><!---/header-->
+
+<!--=== Breadcrumbs ===-->
+<div class="row-fluid breadcrumbs margin-bottom-20">
+	<div class="container">
+        <strong >REGISTER FREE</strong> /Advertising Program
+    </div><!--/container-->
+</div><!--=== /Breadcrumbs ===-->
+
+<!----notice--->
+<div class="offset1">
+<p>Note : Please enter accurate information. The given information helps us understand your business process and needs, while maintaining trust, goodwill in the marketplace.</p>
+</div><!----notice--->
+
+<!--- Registration-->
+
+<div class="container"><!--container-->
+<div class="row-fluid"><!--row-fluid-->
+<!--LOGIN INFO--->
+<form method="post" action="register.php" id="validate" name="validate">
+<div class="row-fluid">
+	<div class="span8 offset2 headline">
+		<h5><strong>LOGIN INFO</strong></h5>
+	</div>
+ </div>
+ <!--/LOGIN INFO--->
+  <!--Email ID--->
+<div class="span8 row-fluid offset2">
+	<div class="span4">
+		* Email ID (Username)
+	</div>
+	<div class="span4 input-append">
+	<input type="email" name="email" id="email"  placeholder="Email id or username" class="validate[required]" ><span class="check" > </span> 
+	</div>
+</div><!--/Email ID--->
+
+<!--password--->
+<div class="row-fluid offset2 span8">
+	<div class="span4">
+		* Password
+	</div>
+	<div class="span4">
+		<input type="password" name="password"  class="validate[required,minSize[5]]" id="password" placeholder="Password">
+	</div>
+</div><!--/password--->
+
+<!--confirm password--->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Confirm Password
+	</div>
+	<div class="span4">
+	<input type="password" name="confirmpassword" class="validate[required,equals[password]]" placeholder="Confirm password">
+	</div>
+</div><!--/confirm password--->
+
+<!---BUSINESS INFO-->
+
+<div class="row-fluid">
+	<div class="span8 offset2 headline">
+		<h5><strong>BUSINESS INFO</strong></h5>
+	</div>
+</div><!---/BUSINESS INFO-->
+
+<!---company Name-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Company Name
+	</div>
+	<div class="span4">
+		<input type="text" name="companyname" id="companyname" class="validate[required,custom[onlyLetterNumber],maxSize[20],ajax[ajaxUserCallPhp]]" placeholder="Company Name">
+	</div>
+</div><!---/company Name-->
+
+<!---Product Profile-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Product Profile
+	</div>
+	<div class="span4">
+<textarea rows="3" name="productprofile" placeholder="Product Profile (Minimum 150 words)" class="validate[required]"></textarea>
+	</div>
+</div><!---/Product Profile-->
+
+<!---state-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* State
+	</div>
+	<div class="span4">
+		<input type="text" name="state" class="validate[required,maxSize[50]]" placeholder="State">
+	</div>
+</div><!---/state-->
+
+<!---Country-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Country
+	</div>
+	<div class="span4">
+		<input type="text" name="country"  class="validate[required,maxSize[50]]" placeholder="Country">
+	</div>
+</div><!---/Country-->
+
+<!--Keywords-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Keywords
+	</div>
+	<div class="span4">
+<textarea rows="3" name="keywords"  class="validate[required,maxSize[500]]" placeholder="keywords"></textarea>
+	</div>
+</div><!--/Keywords-->
+
+<!---url-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		URL
+	</div>
+	<div class="span4">
+		<input type="url" name="url" class="validate[required,maxSize[50]]"placeholder="http://www.yourcompanyname.com">
+	</div>
+</div><!---url-->
+
+<!--CONTACT INFO-->
+<div class="row-fluid">
+	<div class="span8 offset2 headline">
+		<h5><strong>CONTACT INFO</strong></h5>
+	</div>
+</div><!--/CONTACT INFO-->
+
+<!---Contact Person-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Contact Person
+	</div>
+	<div class="span4">
+		<input type="text" name="contactperson" class="validate[required,maxSize[50]]" placeholder="Contact Person">
+	</div>
+</div><!---/Contact Person-->
+
+<!--address-->
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		Address
+	</div>
+	<div class="span4">
+		<textarea rows="3" name="address" class="validate[required,maxSize[300]]" placeholder="address"></textarea>
+	</div>
+ </div><!--/address-->
+    
+    <!--City-->      
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		City
+	</div>
+	<div class="span4">
+		<input type="text"  name="city" class="validate[required,maxSize[100]]" placeholder="city">
+	</div>
+</div><!--/City-->
+    
+    
+<!--telephone-->      
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		Telephone
+	</div>
+	<div class="span4">
+		<input type="number"  name="telephone" class="validate[required,maxSize[30]]" placeholder="Telephone">
+	</div>
+</div><!--/telephone-->
+
+<!--mobile-->      
+<div class="row-fluid span8 offset2">
+	<div class="span4">
+		* Mobile
+	</div>
+	<div class="span4">
+		<input type="number" name="mobile" class="validate[required,maxSize[30]]" placeholder="Mobile">
+	</div>
+</div><!--/mobile--> 
+
+<!--button-->
+<div class="row-fluid  span8 offset2">
+	<div class="span4">
+	</div>
+	<div class="span4">
+		<button class="btn" type="submit" name="submit" id="submit"/>Register</button>
+     </div>
+	
+</div>
+
+</form>
+</div><!--row-fluid-->
+</div><!--/container-->
+
+
+<div class="row-fluid">
+	<div class="span6 offset4">						
+	      <p> 
+          	<a href="#">&nbsp; FAQs</a>&nbsp;&nbsp; | 
+          	<a href="#">&nbsp; Disclaimer</a>&nbsp;&nbsp;  |
+            <a href="#">&nbsp; Tell us what you Think</a>&nbsp;&nbsp;  |
+            <a href="#">&nbsp; Our Company</a>  
+          </p>
+ 	</div>
+   </div> 
+    
+<!-- JS Global Compulsory -->           
+<script type="text/javascript" src="assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>        
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> <script type='text/javascript' src='assets/js/jquery/jquery-ui-1.10.1.custom.min.js'></script>
+<script type='text/javascript' src='assets/js/uniform/jquery.uniform.min.js'></script>
+<script type='text/javascript' src='assets/js/plugins.js'></script>      
+<script type='text/javascript' src='assets/js/languages/jquery.validationEngine-en.js'></script>
+<script type='text/javascript' src='assets/js/jquery.validationEngine.js'></script>  
+<script type="text/javascript" src="jscript/registration.js"></script>
+
+
+
+</body>
+</html>

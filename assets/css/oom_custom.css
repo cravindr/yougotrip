@@ -1,0 +1,14 @@
+.main-area {
+    border: 2px solid #FD7800;
+}
+
+.row {
+    zoom: 1;
+    margin-left: -20px;
+}
+.sec-area {
+    border: 3px solid #FD7800;
+}
+.mycontent-left {
+  border-right: 1px dashed #FD7800;
+}

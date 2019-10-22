@@ -1,0 +1,115 @@
+<?php
+session_start();
+require('smartysetting.php');
+require('authenticate.php');
+
+$smarty->assign('menu_agent','class="active"');
+$smarty->display('header.tpl');
+
+if(isset($_SESSION['ID_EDIT'])){
+	
+	
+	
+	$agent_id = $_SESSION['ID_EDIT'];
+	$qry = "select * from agent where agent_id='$agent_id'";
+	$res = mysqli_query($con,$qry);
+	$row = mysqli_fetch_array($res);
+	$_SESSION['COUNTRY_NAME']=$row['country'];
+	$smarty->assign('agent_id',$agent_id);
+	$smarty->assign('input_title',$row['title']);
+	$smarty->assign('input_firstname',$row['first_name']);
+	$smarty->assign('input_lastname',$row['last_name']);
+	$smarty->assign('input_address',$row['address']);
+	$smarty->assign('input_city',$row['city']);
+	$smarty->assign('input_state',$row['state']);
+	$smarty->assign('input_country',$row['country']);
+	$smarty->assign('input_pincode',$row['zip']);
+	$smarty->assign('input_email',$row['email']);
+	$smarty->assign('input_income',$row['income']);
+	$smarty->assign('input_phone',$row['phone']);
+	$smarty->assign('input_mobile',$row['mobile']);
+	$smarty->assign('input_mobile2',$row['mobile2']);
+	$smarty->assign('input_fax',$row['fax']);
+	$smarty->assign('input_pan',$row['pan_card_no']);
+	$smarty->assign('input_website',$row['website']);
+	$smarty->assign('input_cmp_name',$row['company']);
+	
+	$num = 1;
+	$img_url = $row['company_logo'];
+	$display_img_logo = "<div class='fileupload-new thumbnail span2' id='img$num'>
+								<div class='arrow'></div>
+								<a href='#'><div class='icon' onclick=removeLogo($num,$agent_id,'$img_url')>
+									<span class='icon-remove'></span>
+								</div> </a>    
+								<img src='$img_url' width='100%' />
+							</div>";
+	if($row['company_logo'] != ''  ){		
+		$smarty->assign('display_logo_main','style="display:none"');
+		$smarty->assign('display_img_lo','style="display:block"');
+		$smarty->assign('display_img_logo',$display_img_logo);
+	}else{
+		$smarty->assign('display_img_lo','style="display:none"');
+		$smarty->assign('input_img1',$row['company_logo']);
+	}
+	
+	$smarty->assign('input_cmp_reg_no',$row['company_reg_no']);
+	$smarty->assign('input_cmp_vat',$row['company_vat_no']);
+	$smarty->assign('input_cmp_service_tax',$row['company_service_tax_no']);
+	$smarty->assign('input_cmp_address',$row['company_address']);
+	$smarty->assign('input_cmp_bank_details',$row['company_bank_details']);
+	$smarty->assign('input_cmp_pan',$row['company_pan_card_no']);
+	
+	$smarty->assign('user_post_url','agent_upd.php');
+	
+	$validate='class="validate[required,maxSize[100]]"';
+
+	$smarty->assign('emailvalidate',$validate);
+	
+	unset($_SESSION['ID_EDIT']);
+	
+}else{	
+	$validate='class="validate[required,maxSize[100]],ajax[ajaxAgentCallPhp]"';
+	$smarty->assign('emailvalidate',$validate);
+	$smarty->assign('display_img','style="display:none"');	
+	$smarty->assign('user_post_url','agent_save.php');	
+}
+
+$smarty->display('agent.tpl');
+if($agent_id)
+{
+	
+	$smarty->assign('tbl_title','Transaction List');
+	$smarty->assign('tbl_th_sno','S.No');
+	$smarty->assign('tbl_th_pay_id','Payment Id');
+	$smarty->assign('tbl_th_date','Date');
+	$smarty->assign('tbl_th_credit','Credit');
+	$smarty->assign('tbl_th_debit','Debit');
+	$smarty->assign('tbl_th_balance','Balance');
+	$smarty->assign('tbl_th_comments','Comments');
+	
+	$smarty->display('agent_trans_tab_header.tpl');
+	$qrytrans="select * from agent_payment where agent_id='$agent_id'";
+	$rstrans=mysqli_query($con,$qrytrans);
+	
+
+	$i=0;
+	while($rowtrans=mysqli_fetch_assoc($rstrans))
+	{
+	$i=$i+1;
+		$smarty->assign('tbl_row_sno',$i);
+		$smarty->assign('tbl_row_id',$rowtrans['payment_id']);
+		$cdate = date("d-m-Y", strtotime($rowtrans['cdate']));
+		$smarty->assign('tbl_row_date',$cdate);
+		$smarty->assign('tbl_row_credit',$rowtrans['credit']);
+		$smarty->assign('tbl_row_debit',$rowtrans['debit']);
+		$smarty->assign('tbl_row_balance',$rowtrans['balance']);
+		$smarty->assign('tbl_row_comments',$rowtrans['comments']);
+		$smarty->display('agent_trans_tab_body.tpl');
+	}
+	
+	
+	
+	$smarty->display('agent_trans_tab_footer.tpl');
+}
+$smarty->display('footer.tpl');
+?>
